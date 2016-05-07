@@ -32,8 +32,13 @@ task :new_post, :title do |t, args|
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
     post.puts "comments: true"
     post.puts "categories: "
-    post.puts "excerpt: "
+    post.puts " - "
+    post.puts "tags: "
+    post.puts " - "
+    post.puts ""
     post.puts "---"
+    post.puts ""
+    post.puts "<!-- more -->"
   end
   system "open #{filename}"
 end
@@ -52,7 +57,6 @@ task :deploy, :check_image do |t, args|
     puts "\n## Committing: #{message}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing generated website"
-    system "git remote add origin https://github.com/gukong/gukong.github.io.git"
     system "git push -u origin master"
     puts "\n## Github Pages deploy complete"
   end
@@ -68,7 +72,7 @@ task :uploadFile, :file_dir do |t, args|
     puts "no file modified"
     next
   end
-  scan_img_path qiniu_base_url, file_dir, modfiles, qiniu_access_key, qiniu_secret_key, qiniu_bucket
+  scan_img_path qiniu_base_url, file_dir, image_dir, modfiles, qiniu_access_key, qiniu_secret_key, qiniu_bucket
 end
 
 
@@ -78,25 +82,37 @@ end
 
 #扫描文件，获取图片路径，并上传
 desc "scan image path contained in file"
-def scan_img_path( baseurl,file_dir, files, access_key, secret_key, qiniu_bucket)
+def scan_img_path( baseurl,file_dir, image_dir, files, access_key, secret_key, qiniu_bucket)
   files.each do |one_file|
     file_content = File.read("#{file_dir}/#{one_file}")
     matchs = file_content.scan(/^*!\[image\]\(([^(http)]+[^\(^\)]*)\)/)
-    puts matchs
+    puts "image local urls: #{matchs}"
     if matchs.length == 0
       save_mod_time file_dir, one_file
       next
     end
 
     matchs.each do |image_path| 
-      _path = image_path[0].to_s
-      file_path = _path.sub(/(..\/)/,'')
-      code, result = upload_file_to_qiniu file_path, access_key, secret_key, qiniu_bucket
+
+      # puts image_path
+      sliceArr = image_path[0].to_s.split(' ')
+      if sliceArr.length == 2
+          _path = sliceArr[0]
+      else
+        _path = image_path[0].to_s
+      end
+
+      puts "this is #{_path}"
+
+      file_name = _path.match(/([^\/]*)(.png|.jpg|.jpeg)/).to_s
+      puts "this file name #{file_name}"
+      file_path = "#{image_dir}/#{file_name}"
+      code, result = upload_file_to_qiniu file_path, file_name, access_key, secret_key, qiniu_bucket
       if code == 200
         #获取到了url
         #把文件里面的本地图片路径替换成url
         key = result["key"]
-        image_url = "#{baseurl}#{key}"
+        image_url = "#{baseurl}#{key}?imageMogr2/thumbnail/300000@"#图片不超过300000像素
         file_content.gsub!(_path,image_url)
 
         file = File.open("#{file_dir}/#{one_file}", "w")
@@ -135,6 +151,14 @@ def get_mod_files(file_dir, file_extra)
 
   #获取 file_dir 路径下， file_extra 为后缀的文件
   files = get_files_with_ex file_dir, file_extra
+
+  if !File.exist?("#{file_dir}/.mdy")
+    cd "#{file_dir}" do
+      system "touch .mdy"
+    end
+  end
+
+  puts file_dir
 
   #文件修改时间的 hash 表
   json = File.read("#{file_dir}/.mdy")
@@ -193,7 +217,7 @@ end
 # 七牛上传
 #####################
 
-def upload_file_to_qiniu(file_path, access_key, secret_key, qiniu_bucket)
+def upload_file_to_qiniu(file_path, file_name, access_key, secret_key, qiniu_bucket)
   # 构建鉴权对象
   Qiniu.establish_connection! :access_key => access_key,
                               :secret_key => secret_key
@@ -202,7 +226,6 @@ def upload_file_to_qiniu(file_path, access_key, secret_key, qiniu_bucket)
   bucket = qiniu_bucket
 
   #上传到七牛后保存的文件名
-  file_name = file_path.match(/([^\/]*)(.png|.jpg)/).to_s
   if file_name.length == 0
     file_name = Time.now.strftime("%Y-%m-%d-%H:%M:%S")
   end

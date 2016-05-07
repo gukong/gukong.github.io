@@ -6,7 +6,7 @@ define([], function(){
 
         return {
             show: function(){
-                $tipBox.removeClass("hide");
+                // $tipBox.removeClass("hide");
             },
             hide: function(){
                 $tipBox.addClass("hide");

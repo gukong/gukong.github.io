@@ -21,9 +21,19 @@ define([], function(){
 		var tags = $(".tagcloud a");
 		tags.css({"font-size": "12px"});
 		for(var i=0,len=tags.length; i<len; i++){
-			var num = tags.eq(i).html().length % 5 +1;
-			tags[i].className = "";
-			tags.eq(i).addClass("color"+num);
+			// var num = tags.eq(i).html().length % 6 +1;
+			var classStr = tags.eq(i).attr('class');
+			if (classStr.indexOf('color') == -1) {
+				//没有找到 color6 class
+				//不是侧边栏的标签
+				var num = Math.ceil(Math.random()*(5-1)+1)
+				tags[i].className = "";
+				tags.eq(i).addClass("color"+num);
+			}
+			else {
+				var num = Math.ceil(Math.random()*(5-1)+1)
+				tags.eq(i).addClass("color"+num);
+			}
 		}
 	}
 

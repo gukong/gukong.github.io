@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/5 | Hexo</title>
+  <title>原型模式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/05/index.html">
+  <meta name="description" content="一句话阐述 – 对象提供复制自身的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型模式">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/2016-04-28-yuan-xing-mo-shi/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="一句话阐述 – 对象提供复制自身的方法">
+<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/prototype_pattern.png">
+<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/prototype_pattern_s.png">
+<meta property="og:updated_time" content="2016-05-13T14:23:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="原型模式">
+<meta name="twitter:description" content="一句话阐述 – 对象提供复制自身的方法">
+<meta name="twitter:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/prototype_pattern.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -132,57 +136,127 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-2016-04-28-yuan-xing-mo-shi" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/13/2016-05-13-gong-han-fang-fa-mo-shi/" class="archive-article-date">
-  	<time datetime="2016-05-13T13:36:55.000Z" itemprop="datePublished">May 13</time>
+    <div class="article-meta">
+      <a href="/2016/04/28/2016-04-28-yuan-xing-mo-shi/" class="article-date">
+  	<time datetime="2016-04-28T13:54:48.000Z" itemprop="datePublished">2016-04-28</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/13/2016-05-13-gong-han-fang-fa-mo-shi/">工厂方法模式</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      原型模式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS设计模式/">iOS设计模式</a></li></ul>
-	</div>
-
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/架构/">架构</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一句话阐述 – 对象提供复制自身的方法<br><a id="more"></a></p>
+<p>###定义：<br>    使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象。</p>
+<p>###解析<br>    其实就是某个对象实现了一个【复制自身】的方法。</p>
+<p>###类图<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/prototype_pattern.png" alt="image"><br>图1</p>
+<p>###关键部分<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/prototype_pattern_s.png" alt="image"></p>
+<p>关键就是这个 <code>-(基本病毒)clone</code>方法</p>
+<hr>
+<p>看着类图大家应该就明白了。<br>【基本病毒】是原型，本身有一个clone的方法，【计算机】可以调用该接口。</p>
+<p>基于【基本病毒】的【天狗食月病毒】和【熊猫烧香病毒】也可以在【计算机】上大量复制。</p>
+<p>你可以把该模式看做<code>复制</code> <code>粘贴</code>，画板上有一个<code>矩形</code>，你可以获得该<code>矩形</code>的<code>复制体</code>，再把它<code>复制体</code>画到画板的另处。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/13/2016-05-13-gong-han-fang-fa-mo-shi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          工厂方法模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/25/2016-04-25-jekyll-rakefile-zi-dong-shang-chuan-bo-ke-nei-ben-di-tu-pian/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Jekyll Rakefile 自动上传博客内本地图片</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016-04-28-yuan-xing-mo-shi" data-title="原型模式" data-url="http://yoursite.com/2016/04/28/2016-04-28-yuan-xing-mo-shi/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gukong123"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -230,8 +304,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

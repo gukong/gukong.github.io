@@ -2098,6 +2098,17 @@ pre .css ~ * .id {
 .tagcloud a.color5:before {
   border-right-color: #7b5d5f;
 }
+.tagcloud a.color6 {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 7px 0px 7px;
+}
+.tagcloud a.color6:before {
+  visibility: hidden;
+}
+.tagcloud a.color6:after {
+  visibility: hidden;
+}
 .article-tag-list .article-tag-list-item {
   float: left;
 }

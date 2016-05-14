@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Push Pop 手势过渡动画 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="手势控制 pop 动画的进度，让用户一样更加的自然和酷炫…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Push Pop 手势过渡动画">
+<meta property="og:url" content="http://yoursite.com/2016/04/03/2016-04-03-push-pop-shou-shi-guo-du-dong-hua/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="手势控制 pop 动画的进度，让用户一样更加的自然和酷炫…">
+<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/push_pop_1.png">
+<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/push_pop_2.png">
+<meta property="og:updated_time" content="2016-05-13T14:22:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Push Pop 手势过渡动画">
+<meta name="twitter:description" content="手势控制 pop 动画的进度，让用户一样更加的自然和酷炫…">
+<meta name="twitter:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/push_pop_1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xtaiq.com1.z0.glb.clouddn.com/image/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Nate</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					
+				</section>
+
+				<section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud" style="position: relative">
+                        
+                        <p style="position: relative;float: left;width: 100%;"> 标签 </p><ul class="tag-list"><li class="tag-list-item"><a class="color6" href="/tags/iOS设计模式/">iOS设计模式</a></li><li class="tag-list-item"><a class="color6" href="/tags/ruby/">ruby</a></li></ul>
+                        </br>
+                        
+                        <p style="position: relative;float: left;width: 100%;"> 分类 </p><ul class="category-list"><li class="category-list-item"><a class="color6" href="/categories/iOS开发-a-a/">iOS开发|a|a</a></li><li class="category-list-item"><a class="color6" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="color6" href="/categories/架构/">架构</a></li></ul>
+                    </div>
+
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa github" target="_blank" href="#" title="github"></a>
+                            
+                                <a class="fa weibo" target="_blank" href="#" title="weibo"></a>
+                            
+                                <a class="fa rss" target="_blank" href="#" title="rss"></a>
+                            
+                                <a class="fa zhihu" target="_blank" href="#" title="zhihu"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+			</div>
+		</div>
+		
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Nate</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xtaiq.com1.z0.glb.clouddn.com/image/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Nate</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2016-04-03-push-pop-shou-shi-guo-du-dong-hua" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/03/2016-04-03-push-pop-shou-shi-guo-du-dong-hua/" class="article-date">
+  	<time datetime="2016-04-03T10:34:06.000Z" itemprop="datePublished">2016-04-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Push Pop 手势过渡动画
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS开发-a-a/">iOS开发|a|a</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>手势控制 pop 动画的进度，让用户一样更加的自然和酷炫…<br><a id="more"></a></p>
+<p>##原料</p>
+<ul>
+<li>SwipeTransitioning : NSObject <uiviewcontrolleranimatedtransitioning\></uiviewcontrolleranimatedtransitioning\></li>
+<li>FirstViewController () <uinavigationcontrollerdelegate\></uinavigationcontrollerdelegate\></li>
+<li>SecondViewController ()</li>
+<li>UIScreenEdgePanGestureRecognizer *edgePanGestureRecognizer</li>
+</ul>
+<h2 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h2><ul>
+<li>push、pop 由 SwipeTransitioning 处理动画过渡</li>
+<li>UIScreenEdgePanGestureRecognizer 要 add 到需要 pop 的那个ViewController</li>
+<li>UIScreenEdgePanGestureRecognizer 设置了动画进度</li>
+<li>It’s easy!</li>
+</ul>
+<p>##流程</p>
+<h4 id="一、布局-UIImageView"><a href="#一、布局-UIImageView" class="headerlink" title="一、布局 UIImageView"></a>一、布局 UIImageView</h4><p><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/push_pop_1.png" alt="image"><br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/push_pop_2.png" alt="image"></p>
+<h4 id="二、UINavigationViewController-设置"><a href="#二、UINavigationViewController-设置" class="headerlink" title="二、UINavigationViewController 设置"></a>二、UINavigationViewController 设置</h4><pre><code>self.navigationController.delegate = self;
+swipeTransitioning = [SwipeTransitioning new];
+</code></pre><h4 id="三、开始-Push（设置UIScreenEdgePanGestureRecognizer）"><a href="#三、开始-Push（设置UIScreenEdgePanGestureRecognizer）" class="headerlink" title="三、开始 Push（设置UIScreenEdgePanGestureRecognizer）"></a>三、开始 Push（设置UIScreenEdgePanGestureRecognizer）</h4><pre><code>//push viewController
+SecondViewController *con = [[SecondViewController alloc] initWithNibName:@&quot;SecondViewController&quot; bundle:nil];
+[self.navigationController pushViewController:con animated:YES];
+
+//设置UIScreenEdgePanGestureRecognizer
+UIScreenEdgePanGestureRecognizer *edgePanGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgePanGesture:)];
+edgePanGestureRecognizer.edges = UIRectEdgeLeft;
+[con.view addGestureRecognizer:edgePanGestureRecognizer];
+</code></pre><h4 id="四、处理-Push-动画"><a href="#四、处理-Push-动画" class="headerlink" title="四、处理 Push 动画"></a>四、处理 Push 动画</h4><p>处理 UINavigationControllerDelegate 事件</p>
+<pre><code>- (id&lt;UIViewControllerAnimatedTransitioning&gt;)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController *)fromVC
+                                                 toViewController:(UIViewController *)toVC
+{
+    switch (operation) {
+        case UINavigationControllerOperationPush: {
+            return swipeTransitioning;
+            break;
+        }
+        case UINavigationControllerOperationPop: {
+            return swipeTransitioning;
+            break;
+        }
+        default: {
+            return nil;
+        }
+    }
+}
+</code></pre><p>SwipeTransitioning 处理过渡动画</p>
+<pre><code>@implementation SwipeTransitioning
+
+- (NSTimeInterval)transitionDuration:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext {
+    return 0.8f;
+}
+
+- (void)animateTransition:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext {
+
+    //获得fromViewController, toViewController, containerView(fromView，toView，transitioningView都在这上面切换)
+    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIView *containerView = [transitionContext containerView];
+
+    //获取需要做动画的View，计算Frame，获得过渡动画的初始位置
+    UIView *oriImageView = (UIView *)[fromVC valueForKey:@&quot;imageView&quot;];
+    UIView *fromViewShot = [oriImageView snapshotViewAfterScreenUpdates:YES];
+    fromViewShot.frame = [containerView convertRect:oriImageView.frame fromView:oriImageView.superview];
+
+    toVC.view.frame = [transitionContext finalFrameForViewController:toVC];
+    toVC.view.alpha = 0;
+    [containerView addSubview:toVC.view];
+
+    [containerView addSubview:fromViewShot];
+
+
+    [containerView layoutIfNeeded];
+    [UIView animateWithDuration:0.8f
+                          delay:0.0
+         usingSpringWithDamping:0.8
+          initialSpringVelocity:1.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         toVC.view.alpha = 1.0;
+                         //动画View的最终位置
+                         UIView *toView = (UIView *)[toVC valueForKey:@&quot;imageView&quot;];
+                         CGRect frame = [containerView convertRect:toView.frame fromView:toView.superview];
+                         [fromViewShot setFrame:frame];
+                     } completion:^(BOOL finished) {
+                         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
+                     }];
+}
+
+
+@end
+</code></pre><h4 id="五、处理-Pop-动画"><a href="#五、处理-Pop-动画" class="headerlink" title="五、处理 Pop 动画"></a>五、处理 Pop 动画</h4><p>处理 UINavigationControllerDelegate 事件</p>
+<pre><code>- (id&lt;UIViewControllerInteractiveTransitioning&gt;)navigationController:(UINavigationController *)navigationController
+                         interactionControllerForAnimationController:(id&lt;UIViewControllerAnimatedTransitioning&gt;)animationController
+{
+    return self.interactivePopTransition;
+}
+</code></pre><p>处理    UIScreenEdgePanGestureRecognizer 事件</p>
+<pre><code>- (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)recognize     {
+    CGFloat progress = [recognizer translationInView:self.view].x / (self.view.bounds.size.width * 1.)    ;
+    progress = MIN(1.0, MAX(0.0, progress)    ;
+
+    switch (recognizer.state     {
+        case UIGestureRecognizerStateBegan     {
+            self.interactivePopTransition = [UIPercentDrivenInteractiveTransition ne]    ;
+            [self.navigationController popViewControllerAnimated:YE]    ;
+            brek    ;
+           }
+        case UIGestureRecognizerStateChanged     {
+            [self.interactivePopTransition updateInteractiveTransition:progres]    ;
+            brek    ;
+           }
+        case UIGestureRecognizerStateEndd    :
+        case UIGestureRecognizerStateCancelled     {
+            if (progress &gt; 0.3     {
+                [self.interactivePopTransition finishInteractiveTransitio]    ;
+            } els     {
+                [self.interactivePopTransition cancelInteractiveTransitio]    ;
+               }
+            self.interactivePopTransition = nl    ;
+            brek    ;
+           }
+        default     {
+            brek    ;
+           }
+       }
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/05/2016-04-05-xue-xi-gong-han-mo-shi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          工厂方法模式
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016-04-03-push-pop-shou-shi-guo-du-dong-hua" data-title="Push Pop 手势过渡动画" data-url="http://yoursite.com/2016/04/03/2016-04-03-push-pop-shou-shi-guo-du-dong-hua/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gukong123"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Nate
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+    
+    
+      <div class="visit">
+          
+              <span id="busuanzi_container_site_pv" style='display:none'>
+                  <span id="site-visit" >本站到访数: 
+                      <span id="busuanzi_value_site_uv"></span>
+                  </span>
+              </span>
+          
+          
+              <span>, </span>
+          
+          
+              <span id="busuanzi_container_page_pv" style='display:none'>
+                  <span id="page-visit">本页阅读量: 
+                      <span id="busuanzi_value_page_pv"></span>
+                  </span>
+              </span>
+          
+      </div>
+    
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>

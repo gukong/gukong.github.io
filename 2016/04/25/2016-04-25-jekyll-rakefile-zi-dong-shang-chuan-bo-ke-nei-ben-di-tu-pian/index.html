@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Jekyll Rakefile 自动上传博客内本地图片 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在Blog中访问图片资源存在路径问题，虽然路径问题是可以本解决的，但是仍然觉得网页里面最好不要包含本地文件路径。还有就是可以把图片资源和文章的管理分开，把图片放到七牛，可以更灵活的处理图片资源。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jekyll Rakefile 自动上传博客内本地图片">
+<meta property="og:url" content="http://yoursite.com/2016/04/25/2016-04-25-jekyll-rakefile-zi-dong-shang-chuan-bo-ke-nei-ben-di-tu-pian/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在Blog中访问图片资源存在路径问题，虽然路径问题是可以本解决的，但是仍然觉得网页里面最好不要包含本地文件路径。还有就是可以把图片资源和文章的管理分开，把图片放到七牛，可以更灵活的处理图片资源。">
+<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/rake_upload_qiniu.png">
+<meta property="og:updated_time" content="2016-05-13T14:24:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jekyll Rakefile 自动上传博客内本地图片">
+<meta name="twitter:description" content="在Blog中访问图片资源存在路径问题，虽然路径问题是可以本解决的，但是仍然觉得网页里面最好不要包含本地文件路径。还有就是可以把图片资源和文章的管理分开，把图片放到七牛，可以更灵活的处理图片资源。">
+<meta name="twitter:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/rake_upload_qiniu.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xtaiq.com1.z0.glb.clouddn.com/image/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Nate</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					
+				</section>
+
+				<section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud" style="position: relative">
+                        
+                        <p style="position: relative;float: left;width: 100%;"> 标签 </p><ul class="tag-list"><li class="tag-list-item"><a class="color6" href="/tags/iOS设计模式/">iOS设计模式</a></li><li class="tag-list-item"><a class="color6" href="/tags/ruby/">ruby</a></li></ul>
+                        </br>
+                        
+                        <p style="position: relative;float: left;width: 100%;"> 分类 </p><ul class="category-list"><li class="category-list-item"><a class="color6" href="/categories/iOS开发-a-a/">iOS开发|a|a</a></li><li class="category-list-item"><a class="color6" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="color6" href="/categories/架构/">架构</a></li></ul>
+                    </div>
+
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa github" target="_blank" href="#" title="github"></a>
+                            
+                                <a class="fa weibo" target="_blank" href="#" title="weibo"></a>
+                            
+                                <a class="fa rss" target="_blank" href="#" title="rss"></a>
+                            
+                                <a class="fa zhihu" target="_blank" href="#" title="zhihu"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+			</div>
+		</div>
+		
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Nate</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xtaiq.com1.z0.glb.clouddn.com/image/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Nate</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-2016-04-25-jekyll-rakefile-zi-dong-shang-chuan-bo-ke-nei-ben-di-tu-pian" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/25/2016-04-25-jekyll-rakefile-zi-dong-shang-chuan-bo-ke-nei-ben-di-tu-pian/" class="article-date">
+  	<time datetime="2016-04-25T06:19:01.000Z" itemprop="datePublished">2016-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jekyll Rakefile 自动上传博客内本地图片
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tools/">tools</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Blog中访问图片资源存在路径问题，虽然路径问题是可以本解决的，但是仍然觉得网页里面最好不要包含本地文件路径。还有就是可以把图片资源和文章的管理分开，把图片放到七牛，可以更灵活的处理图片资源。<br><a id="more"></a></p>
+<p>#前言<br>在Blog中访问图片资源存在路径问题，虽然路径问题是可以解决的，但是仍然觉得网页里面最好不要包含本地文件路径。还有就是可以把图片资源和文章的管理分开，把图片放到七牛，可以更灵活的处理图片资源。</p>
+<p>在这之前没有接触过<code>ruby</code>这门语言，看着API文档生搬硬套，写出的代码也就是可以run的程度了，还望海涵。</p>
+<p>#逻辑</p>
+<ol>
+<li><p>在 _posts 目录下，有一个 .mdy 文件，存储的是每个markdown文件的最近修改时间，每次运行<code>rake deploy</code>都会更新 .mdy 文件内容。</p>
+</li>
+<li><p>每次运行 <code>rake deploy</code>,会执行上传图片的任务</p>
+</li>
+<li><p>上传图片的流程图如下</p>
+<p> <img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/rake_upload_qiniu.png" alt="image"></p>
+</li>
+<li>图片放到 jekyll 工程的 assets/images 路径下</li>
+</ol>
+<p>#源代码<br>你需要到七牛注册一个账号，用你的 access_key, secret_key, bucket 替换相应内容</p>
+<p><a href="http://7xtdgs.com2.z0.glb.clouddn.com/Rakefile" target="_blank" rel="external">代码在这里下载</a></p>
+<pre><code>require &quot;stringex&quot;
+require &apos;json&apos;
+require &apos;qiniu&apos;
+
+posts_dir         = &quot;_posts&quot;    # directory for blog files
+new_post_ext      = &quot;markdown&quot;  # default new post file extension when using the new_post task
+qiniu_base_url    = &quot;http://7xtaiq.com1.z0.glb.clouddn.com/&quot; #change to your url
+qiniu_access_key  = &quot;access_key&quot; #change to your 七牛 access key
+qiniu_secret_key  = &quot;secret_key&quot; #change to your qiniu secret key
+qiniu_bucket      = &quot;bucket&quot; #change to your qiniu bucket
+
+# usage rake new_post[my-new-post] or rake new_post[&apos;my new post&apos;] or rake new_post (defaults to &quot;new-post&quot;)
+desc &quot;Begin a new post in #{posts_dir}&quot;
+task :new_post, :title do |t, args|
+  if args.title
+    title = args.title
+  else
+    title = get_stdin(&quot;Enter a title for your post: &quot;)
+  end
+  mkdir_p &quot;#{posts_dir}&quot;
+  filename = &quot;#{posts_dir}/#{Time.now.strftime(&apos;%Y-%m-%d&apos;)}-#{title.to_url}.#{new_post_ext}&quot;
+  if File.exist?(filename)
+    abort(&quot;rake aborted!&quot;) if ask(&quot;#{filename} already exists. Do you want to overwrite?&quot;, [&apos;y&apos;, &apos;n&apos;]) == &apos;n&apos;
+  end
+  puts &quot;Creating new post: #{filename}&quot;
+  open(filename, &apos;w&apos;) do |post|
+    post.puts &quot;---&quot;
+    post.puts &quot;layout: post&quot;
+    post.puts &quot;title: #{title.gsub(/&amp;/,&apos;&amp;amp;&apos;)}&quot;
+    post.puts &quot;date: #{Time.now.strftime(&apos;%Y-%m-%d %H:%M:%S %z&apos;)}&quot;
+    post.puts &quot;comments: true&quot;
+    post.puts &quot;categories: &quot;
+    post.puts &quot;---&quot;
+  end
+  system &quot;open #{filename}&quot;
+end
+
+#部署到github
+desc &quot;make new file&quot;
+task :deploy do
+  system &quot;rake uploadFile[#{posts_dir}]&quot;
+  system &quot;git add .&quot;
+  system &quot;git commit -m \&quot;deploy blog\&quot;&quot;
+  system &quot;git push&quot;
+end
+
+#上传文件到七牛
+desc &quot;upload image to qiniu&quot;
+task :uploadFile, :file_dir do |t, args|
+  file_dir = args.file_dir
+  #获取编辑过的 markdown 文件
+  modfiles = get_mod_files file_dir,&quot;.markdown&quot;
+  if modfiles.length == 0
+    puts &quot;no file modified&quot;
+    next
+  end
+  scan_img_path qiniu_base_url, file_dir, modfiles, qiniu_access_key, qiniu_secret_key, qiniu_bucket
+end
+
+
+################################
+# modified markdown file  
+################################
+
+#扫描文件，获取图片路径，并上传
+desc &quot;scan image path contained in file&quot;
+def scan_img_path( baseurl,file_dir, files, access_key, secret_key, qiniu_bucket)
+  files.each do |one_file|
+    file_content = File.read(&quot;#{file_dir}/#{one_file}&quot;)
+    matchs = file_content.scan(/*^!\[image\]\(([^(http)]+[^\(^\)]*)\)/)
+    puts matchs
+    if matchs.length == 0
+      save_mod_time file_dir, one_file
+      next
+    end
+
+    matchs.each do |image_path| 
+      _path = image_path[0].to_s
+      file_path = _path.sub(/(..\/)/,&apos;&apos;)
+      code, result = upload_file_to_qiniu file_path, access_key, secret_key, qiniu_bucket
+      if code == 200
+        #获取到了url
+        #把文件里面的本地图片路径替换成url
+        key = result[&quot;key&quot;]
+        image_url = &quot;#{baseurl}#{key}&quot;
+        file_content.gsub!(_path,image_url)
+
+        file = File.open(&quot;#{file_dir}/#{one_file}&quot;, &quot;w&quot;)
+        file.puts file_content
+        file.close
+
+        save_mod_time file_dir, one_file
+
+        #删除本地图片
+        system &quot;rm #{file_path}&quot;
+      end  
+    end
+  end
+end
+
+#获取路径下的给定后缀的文件
+def get_files_with_ex(file_dir, file_extra)
+  #files array
+  files = Array.new
+
+  #遍历路径下面的文件，获取匹配 file_extra 的文件
+  Dir.foreach(file_dir) {|file| 
+    extra = File.extname(file)
+    if extra == file_extra
+      files.push(file)
+    end
+  }
+  return files
+end
+
+#获取 file_dir 路径下， file_extra 为后缀的文件，被修改过的
+def get_mod_files(file_dir, file_extra)
+
+  #修改过的文件
+  mod_file = Array.new
+
+  #获取 file_dir 路径下， file_extra 为后缀的文件
+  files = get_files_with_ex file_dir, file_extra
+
+  #文件修改时间的 hash 表
+  json = File.read(&quot;#{file_dir}/.mdy&quot;)
+  should_init_mdy = 0
+  if json.length &gt; 0
+    hashMap = JSON.parse(json.to_s)
+  else
+    hashMap = Hash.new(&quot;0&quot;)  
+    should_init_mdy = 1
+  end
+
+  hashMap = Hash.new(&quot;0&quot;)  
+
+  files.each do |file_name|
+    mtime = File.mtime(file_dir+&apos;/&apos;+file_name).tv_sec
+    new_mtime = mtime.to_i
+    old_mtime = hashMap[file_name].to_i
+    if new_mtime &gt; old_mtime
+        mod_file.push(file_name)
+    end
+    if should_init_mdy == 1
+      hashMap[file_name] = new_mtime.to_s
+    end
+  end
+
+  if should_init_mdy == 1
+    save_mdy = File.open(&quot;#{file_dir}/.mdy&quot;, &quot;w&quot;)
+    save_mdy.puts hashMap.to_json
+    save_mdy.close
+  end
+
+  return mod_file
+end
+
+#保存当前文件的修改时间
+def save_mod_time(file_dir, file)
+  mtime = File.mtime(&quot;#{file_dir}/#{file}&quot;).tv_sec
+
+  #文件修改时间的 hash 表
+  json = File.read(&quot;#{file_dir}/.mdy&quot;)
+  if json.length &gt; 0
+    hashMap = JSON.parse(json)  
+  else
+    hashMap = Hash.new(&quot;0&quot;)  
+  end
+
+  hashMap[&quot;#{file}&quot;] = &quot;#{mtime}&quot;
+
+  mdy_file = File.open(&quot;#{file_dir}/.mdy&quot;,&quot;w&quot;)
+  mdy_file.puts hashMap.to_json
+  mdy_file.close
+
+end
+
+######################
+# 七牛上传
+#####################
+
+def upload_file_to_qiniu(file_path, access_key, secret_key, qiniu_bucket)
+  # 构建鉴权对象
+  Qiniu.establish_connection! :access_key =&gt; access_key,
+                              :secret_key =&gt; secret_key
+
+  #要上传的空间
+  bucket = qiniu_bucket
+
+  #上传到七牛后保存的文件名
+  file_name = file_path.match(/([^\/]*)(.png|.jpg)/).to_s
+  if file_name.length == 0
+    file_name = Time.now.strftime(&quot;%Y-%m-%d-%H:%M:%S&quot;)
+  end
+  key = &quot;image/&quot; + file_name
+
+  #构建上传策略
+  put_policy = Qiniu::Auth::PutPolicy.new(
+      bucket,      # 存储空间
+      key,     # 最终资源名，可省略，即缺省为“创建”语义，设置为nil为普通上传 
+      3600    #token过期时间，默认为3600s
+  )
+
+  #生成上传 Token
+  uptoken = Qiniu::Auth.generate_uptoken(put_policy)
+
+  #调用upload_with_token_2方法上传
+  code, result, response_headers = Qiniu::Storage.upload_with_token_2(
+       uptoken, 
+       file_path,
+       key
+  )
+  #打印上传返回的信息
+  return code, result
+end
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/28/2016-04-28-yuan-xing-mo-shi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          原型模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/05/2016-04-05-xue-xi-gong-han-mo-shi/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">工厂方法模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016-04-25-jekyll-rakefile-zi-dong-shang-chuan-bo-ke-nei-ben-di-tu-pian" data-title="Jekyll Rakefile 自动上传博客内本地图片" data-url="http://yoursite.com/2016/04/25/2016-04-25-jekyll-rakefile-zi-dong-shang-chuan-bo-ke-nei-ben-di-tu-pian/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gukong123"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Nate
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+    
+    
+      <div class="visit">
+          
+              <span id="busuanzi_container_site_pv" style='display:none'>
+                  <span id="site-visit" >本站到访数: 
+                      <span id="busuanzi_value_site_uv"></span>
+                  </span>
+              </span>
+          
+          
+              <span>, </span>
+          
+          
+              <span id="busuanzi_container_page_pv" style='display:none'>
+                  <span id="page-visit">本页阅读量: 
+                      <span id="busuanzi_value_page_pv"></span>
+                  </span>
+              </span>
+          
+      </div>
+    
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>

@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>工厂方法模式 | Hexo</title>
+  <title>抽象工厂模式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工厂方法，就是生产工厂的方法，一句话阐述工厂方法模式–一个可以生成各种各样工厂的模式">
+  <meta name="description" content="抽象工厂模式 – 不是很好理解，我更愿意叫它总工厂模式一句话阐述 – 一个子工厂对应一个产品，总工厂知道所有的子工厂，想要一个特定的产品，找总工厂总是没错的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工厂方法模式">
+<meta property="og:title" content="抽象工厂模式">
 <meta property="og:url" content="http://yoursite.com/2016/05/13/2016-05-13-gong-han-fang-fa-mo-shi/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="工厂方法，就是生产工厂的方法，一句话阐述工厂方法模式–一个可以生成各种各样工厂的模式">
-<meta property="og:updated_time" content="2016-05-13T14:22:55.000Z">
+<meta property="og:description" content="抽象工厂模式 – 不是很好理解，我更愿意叫它总工厂模式一句话阐述 – 一个子工厂对应一个产品，总工厂知道所有的子工厂，想要一个特定的产品，找总工厂总是没错的。">
+<meta property="og:image" content="http://yoursite.com/../assets/images/AbstractFactoryPattern.png">
+<meta property="og:image" content="http://yoursite.com/../assets/images/zonggongchang.png">
+<meta property="og:updated_time" content="2016-05-17T17:11:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工厂方法模式">
-<meta name="twitter:description" content="工厂方法，就是生产工厂的方法，一句话阐述工厂方法模式–一个可以生成各种各样工厂的模式">
+<meta name="twitter:title" content="抽象工厂模式">
+<meta name="twitter:description" content="抽象工厂模式 – 不是很好理解，我更愿意叫它总工厂模式一句话阐述 – 一个子工厂对应一个产品，总工厂知道所有的子工厂，想要一个特定的产品，找总工厂总是没错的。">
+<meta name="twitter:image" content="http://yoursite.com/../assets/images/AbstractFactoryPattern.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -38,7 +41,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Nate</a></h1>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
 		</hgroup>
 
 		
@@ -64,7 +67,7 @@
                         <p style="position: relative;float: left;width: 100%;"> 标签 </p><ul class="tag-list"><li class="tag-list-item"><a class="color6" href="/tags/iOS设计模式/">iOS设计模式</a></li><li class="tag-list-item"><a class="color6" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="color6" href="/tags/swift源码分析/">swift源码分析</a></li></ul>
                         </br>
                         
-                        <p style="position: relative;float: left;width: 100%;"> 分类 </p><ul class="category-list"><li class="category-list-item"><a class="color6" href="/categories/iOS开发-a-a/">iOS开发|a|a</a></li><li class="category-list-item"><a class="color6" href="/categories/swift/">swift</a></li><li class="category-list-item"><a class="color6" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="color6" href="/categories/架构/">架构</a></li></ul>
+                        <p style="position: relative;float: left;width: 100%;"> 分类 </p><ul class="category-list"><li class="category-list-item"><a class="color6" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="color6" href="/categories/swift/">swift</a></li><li class="category-list-item"><a class="color6" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="color6" href="/categories/架构/">架构</a></li></ul>
                     </div>
 
                     <nav class="header-nav">
@@ -93,7 +96,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Nate</h1>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -103,7 +106,7 @@
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">Nate</h1>
+			  <h1 class="header-author">John Doe</h1>
 			</hgroup>
 			
 			<nav class="header-menu">
@@ -150,7 +153,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      工厂方法模式
+      抽象工厂模式
     </h1>
   
 
@@ -174,7 +177,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>工厂方法，就是生产工厂的方法，一句话阐述工厂方法模式–一个可以生成各种各样工厂的模式<br><a id="more"></a></p>
+        <p>抽象工厂模式 – 不是很好理解，我更愿意叫它总工厂模式<br>一句话阐述 – 一个子工厂对应一个产品，总工厂知道所有的子工厂，想要一个特定的产品，找总工厂总是没错的。<br><a id="more"></a></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类。</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>前面已经提到了【总工厂模式】的叫法更易理解，为什么呢？【抽象工厂方法】描述的是这样一个场景：我需要【狙击枪】【霰弹枪】【手枪】，他们有很多共同点，也有许多不同点，如果都由同一个类来生产这些枪械，那么这个类肯定会比较复杂。所以要提炼出共同点，再把不同点分散到【子工厂】去实现。我们不知道最终是谁生产的枪械，只需要到【总工厂】提枪就行了。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><div align="center"><br><img src="../assets/images/AbstractFactoryPattern.png" alt="image"><br></div><br>类图讲解：<br>&emsp;&emsp;从上一个【工厂方法模式】可以知道，【聚能枪】可以发射各种聚能弹，但是在【工厂方法模式】里面，【聚能枪】之所以能发射不同聚能弹的原因是可以更换拥有相同接口的【聚能弹生成器】。<br>&emsp;&emsp;这个【抽象工厂模式】要说明的是，不同的聚能枪可以强化聚能弹不同属性进而达到更理想的击打效果。比如【高压远程聚能枪】配合【α远程聚能弹】可以击打更远的目标哦。<br>&emsp;&emsp;那么问题来了，怎样得到不同的聚能枪呢？答案就是【总工厂】。<br><div align="center"><br><img src="../assets/images/zonggongchang.png" alt="image"><br></div>
+
+<hr>
+<p>这个模式关键的就是【总工厂】，它提供了一个 <strong>工厂对象</strong> 以及 <strong>所有产品的名单</strong>  </p>
+<ol>
+<li>所有【子工厂】都提供【总工厂】列出的所有产品，也就是你获得了一个什么样的【子工厂】，也就获得了什么样的【产品】。所以你需要明确的告诉【总工厂】你想要的【子工厂】类型。</li>
+<li>你可以模糊【子工厂】的概念，甚至使用工厂的人不需要知道【子工厂】的存在。【总工厂】可以提供一个接口：传入产品类型，返回相应的【子工厂】（<strong>子工厂</strong>会被当做<strong>总工厂</strong>使用）。</li>
+</ol>
 
       
     </div>
@@ -230,7 +243,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016-05-13-gong-han-fang-fa-mo-shi" data-title="工厂方法模式" data-url="http://yoursite.com/2016/05/13/2016-05-13-gong-han-fang-fa-mo-shi/"></div>
+	<div class="ds-thread" data-thread-key="2016-05-13-gong-han-fang-fa-mo-shi" data-title="抽象工厂模式" data-url="http://yoursite.com/2016/05/13/2016-05-13-gong-han-fang-fa-mo-shi/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -255,7 +268,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Nate
+    		&copy; 2016 John Doe
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

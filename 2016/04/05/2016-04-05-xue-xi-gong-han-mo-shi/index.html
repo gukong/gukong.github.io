@@ -15,7 +15,7 @@
 <meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_big.png">
 <meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_sm.png">
 <meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_min.png">
-<meta property="og:updated_time" content="2016-05-13T14:22:57.000Z">
+<meta property="og:updated_time" content="2016-05-17T15:34:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工厂方法模式">
 <meta name="twitter:description" content="一句话概述 – 工厂方法模式，总的来说，[生成器]封装[物件]的生成过程，通过继承的方式最大程度的让[生成器]、[物件]、[使用者]、[其他外部力量]解耦。">
@@ -42,7 +42,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Nate</a></h1>
+		  <h1 class="header-author"><a href="/">John Doe</a></h1>
 		</hgroup>
 
 		
@@ -68,7 +68,7 @@
                         <p style="position: relative;float: left;width: 100%;"> 标签 </p><ul class="tag-list"><li class="tag-list-item"><a class="color6" href="/tags/iOS设计模式/">iOS设计模式</a></li><li class="tag-list-item"><a class="color6" href="/tags/ruby/">ruby</a></li><li class="tag-list-item"><a class="color6" href="/tags/swift源码分析/">swift源码分析</a></li></ul>
                         </br>
                         
-                        <p style="position: relative;float: left;width: 100%;"> 分类 </p><ul class="category-list"><li class="category-list-item"><a class="color6" href="/categories/iOS开发-a-a/">iOS开发|a|a</a></li><li class="category-list-item"><a class="color6" href="/categories/swift/">swift</a></li><li class="category-list-item"><a class="color6" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="color6" href="/categories/架构/">架构</a></li></ul>
+                        <p style="position: relative;float: left;width: 100%;"> 分类 </p><ul class="category-list"><li class="category-list-item"><a class="color6" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="color6" href="/categories/swift/">swift</a></li><li class="category-list-item"><a class="color6" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="color6" href="/categories/架构/">架构</a></li></ul>
                     </div>
 
                     <nav class="header-nav">
@@ -97,7 +97,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Nate</h1>
+  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -107,7 +107,7 @@
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">Nate</h1>
+			  <h1 class="header-author">John Doe</h1>
 			</hgroup>
 			
 			<nav class="header-menu">
@@ -175,12 +175,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>一句话概述 – 工厂方法模式，总的来说，[生成器]封装[物件]的生成过程，通过继承的方式最大程度的让[生成器]、[物件]、[使用者]、[其他外部力量]解耦。<br><a id="more"></a></p>
-<p>###定义：<br>    定义创建对象的接口，让子类决定实例化哪一个类，工厂方法使得一个类的实例化延迟到其子类。</p>
-<p>###解析：<br>    怎么都不觉得他应该叫【工厂方法模式】，叫【生成器模式】更贴切。</p>
-<p>###可以先看一看类图<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_big.png" alt="image"><br>图1</p>
-<p>###简化到关键部分是这样的<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_sm.png" alt="image"><br>图2</p>
+<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><pre><code>定义创建对象的接口，让子类决定实例化哪一个类，工厂方法使得一个类的实例化延迟到其子类。
+</code></pre><h3 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h3><pre><code>怎么都不觉得他应该叫【工厂方法模式】，叫【生成器模式】更贴切。
+</code></pre><h3 id="可以先看一看类图"><a href="#可以先看一看类图" class="headerlink" title="可以先看一看类图"></a>可以先看一看类图</h3><p><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_big.png" alt="image"><br>图1</p>
+<h3 id="简化到关键部分是这样的"><a href="#简化到关键部分是这样的" class="headerlink" title="简化到关键部分是这样的"></a>简化到关键部分是这样的</h3><p><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_sm.png" alt="image"><br>图2</p>
 <p>注意：<code>α射线聚能器</code>的实质就是<code>α远程聚能弹生成器</code></p>
-<p>###最最关键的部分是<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_min.png" alt="image"><br>图3</p>
+<h3 id="最最关键的部分是"><a href="#最最关键的部分是" class="headerlink" title="最最关键的部分是"></a>最最关键的部分是</h3><p><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_min.png" alt="image"><br>图3</p>
 <hr>
 <p>说穿了，这个模式根本就是在封装一个对象的初始化工作，所以我说应该叫【生成器模式】嘛。</p>
 <p>抽丝剥茧看到了本质，再把拨开的皮一层一层复原。</p>
@@ -283,7 +283,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Nate
+    		&copy; 2016 John Doe
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

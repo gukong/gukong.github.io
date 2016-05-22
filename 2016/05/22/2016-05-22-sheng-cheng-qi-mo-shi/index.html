@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/5 | Hexo</title>
+  <title>生成器模式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/05/index.html">
+  <meta name="description" content="复杂对象包含许多子部件，其提供一系列创建子部件的接口。构建者持有复杂对象，可以创建某种风格的子部件。主管被赋予构建者的管理权限，进而指导构建者构建复杂对象。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生成器模式">
+<meta property="og:url" content="http://yoursite.com/2016/05/22/2016-05-22-sheng-cheng-qi-mo-shi/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="复杂对象包含许多子部件，其提供一系列创建子部件的接口。构建者持有复杂对象，可以创建某种风格的子部件。主管被赋予构建者的管理权限，进而指导构建者构建复杂对象。">
+<meta property="og:image" content="http://yoursite.com/../assets/images/generate-pattern.png">
+<meta property="og:updated_time" content="2016-05-22T04:32:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="生成器模式">
+<meta name="twitter:description" content="复杂对象包含许多子部件，其提供一系列创建子部件的接口。构建者持有复杂对象，可以创建某种风格的子部件。主管被赋予构建者的管理权限，进而指导构建者构建复杂对象。">
+<meta name="twitter:image" content="http://yoursite.com/../assets/images/generate-pattern.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -132,119 +135,110 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-2016-05-22-sheng-cheng-qi-mo-shi" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/05/22/2016-05-22-sheng-cheng-qi-mo-shi/" class="article-date">
+  	<time datetime="2016-05-22T02:54:31.000Z" itemprop="datePublished">2016-05-22</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      生成器模式
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/22/2016-05-22-sheng-cheng-qi-mo-shi/" class="archive-article-date">
-  	<time datetime="2016-05-22T02:54:31.000Z" itemprop="datePublished">May 22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/22/2016-05-22-sheng-cheng-qi-mo-shi/">生成器模式</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>复杂对象包含许多子部件，其提供一系列创建子部件的接口。<br>构建者持有复杂对象，可以创建某种风格的子部件。<br>主管被赋予构建者的管理权限，进而指导构建者构建复杂对象。<br><a id="more"></a></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>将一个复杂对象的构建与它的表现分离，使得同样的构建过程可以创建不同的表现。</p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>需要创建的对象很复杂，需要许多的步骤来创建，生成器模式最主要的就是把创建过程封装到一个抽象类，继承该抽象类的子类都有了创建复杂对象的流程。</p>
+<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><div align="center"><br><img src="../assets/images/generate-pattern.png" alt="image"><br></div><br>类图详解<br>&emsp;&emsp;制造枪械需要许多零部件，【聚能枪制造车间】专门制造枪械零部件，子类通过继承【聚能枪制造车间】来获得制造枪械的关键步骤，进而可以创建个性化的枪械。整个制造流程是在【机械制造技师】的控制下的。</p>
+<hr>
+<p>这个模式关键就是分离构建对象的步骤。一个抽象工厂提供构建对象的流程，子工厂在流程当中构建具体的部件。另外需要一个主管来操作子工厂构建复杂对象。</p>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/14/2016-05-14-kai-shi-yue-du-swiftyuan-dai-ma/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开始阅读Swift源代码</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/14/2016-05-14-kai-shi-yue-du-swiftyuan-dai-ma/" class="archive-article-date">
-  	<time datetime="2016-05-14T09:25:16.000Z" itemprop="datePublished">May 14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/14/2016-05-14-kai-shi-yue-du-swiftyuan-dai-ma/">开始阅读Swift源代码</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift源码分析/">swift源码分析</a></li></ul>
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/swift/">swift</a>
-	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/13/2016-05-13-gong-han-fang-fa-mo-shi/" class="archive-article-date">
-  	<time datetime="2016-05-13T13:36:55.000Z" itemprop="datePublished">May 13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/13/2016-05-13-gong-han-fang-fa-mo-shi/">抽象工厂模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS设计模式/">iOS设计模式</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/架构/">架构</a>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016-05-22-sheng-cheng-qi-mo-shi" data-title="生成器模式" data-url="http://yoursite.com/2016/05/22/2016-05-22-sheng-cheng-qi-mo-shi/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gukong123"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -292,8 +286,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

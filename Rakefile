@@ -48,18 +48,10 @@ desc "make new file"
 task :deploy, :check_image do |t, args|
   if args.check_image
     puts "check_image"
-    system "rake uploadFile[#{image_dir}]"
+    system "rake uploadFile[#{posts_dir}]"
   end
 
-  cd "#{deploy_dir}" do
-    system "git add -A"
-    message = "Site updated at #{Time.now.utc}"
-    puts "\n## Committing: #{message}"
-    system "git commit -m \"#{message}\""
-    puts "\n## Pushing generated website"
-    system "git push -u origin master"
-    puts "\n## Github Pages deploy complete"
-  end
+  system "hexo deploy"
 end
 
 #上传文件到七牛
@@ -132,7 +124,7 @@ end
 def get_files_with_ex(file_dir, file_extra)
   #files array
   files = Array.new
-
+  puts "file_extra:#{file_extra}"
   #遍历路径下面的文件，获取匹配 file_extra 的文件
   Dir.foreach(file_dir) {|file| 
     extra = File.extname(file)
@@ -151,6 +143,8 @@ def get_mod_files(file_dir, file_extra)
 
   #获取 file_dir 路径下， file_extra 为后缀的文件
   files = get_files_with_ex file_dir, file_extra
+
+  puts "old_mtime:#{files}"
 
   if !File.exist?("#{file_dir}/.mdy")
     cd "#{file_dir}" do

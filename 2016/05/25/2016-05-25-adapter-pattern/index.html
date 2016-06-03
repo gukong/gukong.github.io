@@ -4,23 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>工厂方法模式 | Nate</title>
+  <title>适配器模式 | Nate</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一句话概述 – 工厂方法模式，总的来说，[生成器]封装[物件]的生成过程，通过继承的方式最大程度的让[生成器]、[物件]、[使用者]、[其他外部力量]解耦。">
+  <meta name="description" content="适配器模式的目的就是提供简单易用的接口。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工厂方法模式">
-<meta property="og:url" content="http://yoursite.com/2016/04/05/2016-04-05-xue-xi-gong-han-mo-shi/index.html">
+<meta property="og:title" content="适配器模式">
+<meta property="og:url" content="http://yoursite.com/2016/05/25/2016-05-25-adapter-pattern/index.html">
 <meta property="og:site_name" content="Nate">
-<meta property="og:description" content="一句话概述 – 工厂方法模式，总的来说，[生成器]封装[物件]的生成过程，通过继承的方式最大程度的让[生成器]、[物件]、[使用者]、[其他外部力量]解耦。">
-<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_sm.png">
-<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_big.png">
-<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_sm.png">
-<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_min.png">
-<meta property="og:updated_time" content="2016-05-22T06:52:30.000Z">
+<meta property="og:description" content="适配器模式的目的就是提供简单易用的接口。">
+<meta property="og:updated_time" content="2016-05-25T15:42:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工厂方法模式">
-<meta name="twitter:description" content="一句话概述 – 工厂方法模式，总的来说，[生成器]封装[物件]的生成过程，通过继承的方式最大程度的让[生成器]、[物件]、[使用者]、[其他外部力量]解耦。">
-<meta name="twitter:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_sm.png">
+<meta name="twitter:title" content="适配器模式">
+<meta name="twitter:description" content="适配器模式的目的就是提供简单易用的接口。">
   
     <link rel="alternative" href="/atom.xml" title="Nate" type="application/atom+xml">
   
@@ -138,11 +133,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-2016-04-05-xue-xi-gong-han-mo-shi" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2016-05-25-adapter-pattern" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/05/2016-04-05-xue-xi-gong-han-mo-shi/" class="article-date">
-  	<time datetime="2016-04-05T13:46:13.000Z" itemprop="datePublished">2016-04-05</time>
+      <a href="/2016/05/25/2016-05-25-adapter-pattern/" class="article-date">
+  	<time datetime="2016-05-25T15:25:54.000Z" itemprop="datePublished">2016-05-25</time>
 </a>
     </div>
   
@@ -155,7 +150,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      工厂方法模式
+      适配器模式
     </h1>
   
 
@@ -179,37 +174,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一句话概述 – 工厂方法模式，总的来说，[生成器]封装[物件]的生成过程，通过继承的方式最大程度的让[生成器]、[物件]、[使用者]、[其他外部力量]解耦。<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_sm.png" alt="image"><br><a id="more"></a></p>
-<h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><pre><code>定义创建对象的接口，让子类决定实例化哪一个类，工厂方法使得一个类的实例化延迟到其子类。
-</code></pre><h2 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h2><pre><code>怎么都不觉得他应该叫【工厂方法模式】，叫【生成器模式】更贴切。
-</code></pre><h2 id="可以先看一看类图"><a href="#可以先看一看类图" class="headerlink" title="可以先看一看类图"></a>可以先看一看类图</h2><p><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_big.png" alt="image"><br>图1</p>
-<h2 id="简化到关键部分是这样的"><a href="#简化到关键部分是这样的" class="headerlink" title="简化到关键部分是这样的"></a>简化到关键部分是这样的</h2><p><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_sm.png" alt="image"><br>图2</p>
-<p>注意：<code>α射线聚能器</code>的实质就是<code>α远程聚能弹生成器</code></p>
-<h2 id="最最关键的部分是"><a href="#最最关键的部分是" class="headerlink" title="最最关键的部分是"></a>最最关键的部分是</h2><p><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/factory_method_pattern_min.png" alt="image"><br>图3</p>
-<hr>
-<p>说穿了，这个模式根本就是在封装一个对象的初始化工作，所以我说应该叫【生成器模式】嘛。</p>
-<p>抽丝剥茧看到了本质，再把拨开的皮一层一层复原。</p>
-<p><br></p>
-<p>一. <code>α射线聚能器</code>和<code>β射线聚能器</code>继承自<code>普通光线聚能器</code></p>
-<p>为什么要继承自【普通光线聚能器】呢？<br>因为【普通光线聚能器】可以提供统一的【给我生成一个聚能弹】的接口<br>这样【聚能枪】只提供一个【普通光线聚能器】的插口就够了，而不需要为每一种聚能器提供不同的插口，图1 中的【第三方人物】可以向【聚能枪】的同一个插口插入不同的聚能弹生成器。</p>
-<p><br></p>
-<p>二. <code>α远程聚能弹</code>和<code>β爆破聚能弹</code>继承自<code>聚能弹</code></p>
-<p>为什么要继承自【聚能弹】呢？<br>为了使【聚能枪】只提供一个接口成为可能！<br>【聚能弹】定义了炮弹的使用方法，继承自【聚能弹】的其他炮弹都该这么用。所以【聚能枪】可以使用不同聚能器生成的不同聚能弹。</p>
-<p><br></p>
-<p>总的来说，<code>生成器</code>封装<code>物件</code>的生成过程，通过继承的方式最大程度的让<code>生成器</code>、<code>物件</code>、<code>使用者</code>、<code>其他外部力量</code>解耦。</p>
-<ol>
-<li><p><code>使用者</code>只知道一个父类<code>生成器</code>和一个父类<code>物件</code></p>
-</li>
-<li><p>特定的<code>生成器</code>只关心特定的一种<code>物件</code></p>
-</li>
-<li><p><code>物件</code>只知道自己是怎么回事</p>
-</li>
-<li><p><code>其他外部力量</code>知道每一种<code>生成器</code>，是他把特定的<code>生成器</code>传递给了<code>使用者</code>，传递何种<code>生成器</code>取决于他想看到何种由<code>使用者</code>使用<code>物件</code>后所表现的效果。因为<code>生成器</code>的存在，<code>其他外部里面</code>不需要知道<code>物件</code>的生成细节。</p>
-</li>
-</ol>
-<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SimpleProduct</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Product1</span> : <span class="title">SimpleProduct</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Product2</span> : <span class="title">SimpleProduct</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SimpleFactory</span> : <span class="title">NSObject</span></span></span><br><span class="line">- (SimpleProduct *)getProduct;<span class="comment">// return [[SimpleProduct alloc] init]</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Factory1</span> : <span class="title">SimpleFactory</span></span></span><br><span class="line">- (SimpleProduct *)getProduct;<span class="comment">// return [[Product1 alloc] init]</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Factory2</span> : <span class="title">SimpleFactory</span></span></span><br><span class="line">- (SimpleProduct *)getProduct;<span class="comment">// return [[Product2 alloc] init]</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/gukong/OCPattern.git" target="_blank" rel="external">源代码可以在这里下载</a></p>
-
+        <p>适配器模式的目的就是提供简单易用的接口。<br><a id="more"></a></p>
+<h2 id="对象适配器模式"><a href="#对象适配器模式" class="headerlink" title="对象适配器模式"></a>对象适配器模式</h2><h2 id="类适配器模式"><a href="#类适配器模式" class="headerlink" title="类适配器模式"></a>类适配器模式</h2>
       
     </div>
     
@@ -218,18 +184,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/25/2016-04-25-jekyll-rakefile-zi-dong-shang-chuan-bo-ke-nei-ben-di-tu-pian/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/05/31/2016-05-31-xcode-yi-jian-fa-bu-dao-appstore/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Jekyll Rakefile 自动上传博客内本地图片
+          Xcode一键发布到AppStore
         
       </div>
     </a>
   
   
-    <a href="/2016/04/03/2016-04-03-push-pop-shou-shi-guo-du-dong-hua/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Push Pop 手势过渡动画</div>
+    <a href="/2016/05/22/2016-05-22-she-ji-mo-shi-xiao-jie/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式小结</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -264,7 +230,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016-04-05-xue-xi-gong-han-mo-shi" data-title="工厂方法模式" data-url="http://yoursite.com/2016/04/05/2016-04-05-xue-xi-gong-han-mo-shi/"></div>
+	<div class="ds-thread" data-thread-key="2016-05-25-adapter-pattern" data-title="适配器模式" data-url="http://yoursite.com/2016/05/25/2016-05-25-adapter-pattern/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

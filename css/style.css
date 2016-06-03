@@ -873,6 +873,11 @@ a {
 .article img {
   max-width: 100%;
 }
+.article-detail-post img {
+  border: 1px;
+  border-color: rgba(0,0,0,0.2);
+  border-style: solid;
+}
 @-webkit-keyframes cd-bounce-1 {
   0% {
     opacity: 0;

@@ -18,17 +18,17 @@
 
 左边增加的事物可以支持所有右边的行为  
 右边增加的行为可以被所有右边的事物使用">
-<meta property="og:image" content="http://yoursite.com/../assets/images/bridge-pattern-3.png">
-<meta property="og:image" content="http://yoursite.com/../assets/images/bridge-pattern-1.png">
-<meta property="og:image" content="http://yoursite.com/../assets/images/bridge-pattern-2.png">
-<meta property="og:updated_time" content="2016-06-09T07:58:18.000Z">
+<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/bridge-pattern-3.png">
+<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/bridge-pattern-1.png">
+<meta property="og:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/bridge-pattern-2.png">
+<meta property="og:updated_time" content="2016-06-09T07:59:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="桥接模式">
 <meta name="twitter:description" content="想一下多对多模式桥接模式就是为了：  
 
 左边增加的事物可以支持所有右边的行为  
 右边增加的行为可以被所有右边的事物使用">
-<meta name="twitter:image" content="http://yoursite.com/../assets/images/bridge-pattern-3.png">
+<meta name="twitter:image" content="http://7xtaiq.com1.z0.glb.clouddn.com/image/bridge-pattern-3.png">
   
     <link rel="alternative" href="/atom.xml" title="Nate" type="application/atom+xml">
   
@@ -181,7 +181,7 @@
     <div class="article-entry article-detail-post" itemprop="articleBody">
   
       
-        <p>想一下多对多模式<br><img src="../assets/images/bridge-pattern-3.png" alt="image"><br>桥接模式就是为了：  </p>
+        <p>想一下多对多模式<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/bridge-pattern-3.png" alt="image"><br>桥接模式就是为了：  </p>
 <ol>
 <li>左边增加的<strong>事物</strong>可以支持所有右边的<strong>行为</strong>  </li>
 <li>右边增加的<strong>行为</strong>可以被所有右边的<strong>事物</strong>使用  <a id="more"></a>
@@ -190,12 +190,13 @@
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>将抽象部分与它的实现部分分离，使它们都可以独立地变化。</p>
 <h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>如何让多对多的结构能更容易的加入更多的元素？抽象，将双方沟通的部分抽象出来，那么基于该抽象构建的对象可以实现对另一方所有元素的支持。</p>
 <h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><ol>
-<li><p>简单类图<br><img src="../assets/images/bridge-pattern-1.png" alt="image"></p>
+<li><p>简单类图<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/bridge-pattern-1.png" alt="image"></p>
 </li>
-<li><p>生动类图<br><img src="../assets/images/bridge-pattern-2.png" alt="image">  </p>
+<li><p>生动类图<br><img src="http://7xtaiq.com1.z0.glb.clouddn.com/image/bridge-pattern-2.png" alt="image">  </p>
 </li>
 </ol>
 <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2> <figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"> <span class="comment">//抽象行为</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">AbstractAction</span> : <span class="title">NSObject</span></span></span><br><span class="line">- (<span class="keyword">void</span>)doAction;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Action1</span> : <span class="title">AbstractAction</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Action2</span> : <span class="title">AbstractAction</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//抽象事物</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">AbstractThing</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) AbstractAction * oneAction;</span><br><span class="line">- (<span class="keyword">void</span>)doSomeThing;<span class="comment">//[_oneAction doAction]</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SomeThing</span>-1 : <span class="title">AbstractThing</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SomeThing</span>-2 : <span class="title">AbstractThing</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//client</span></span><br><span class="line">- (<span class="keyword">void</span>)clientExample &#123;</span><br><span class="line">	Action1 *action = [[Action1 alloc] init];</span><br><span class="line">	</span><br><span class="line">	SomeThing<span class="number">-2</span> *someThing = [[SomeThing<span class="number">-2</span> alloc] init];</span><br><span class="line">	[someThing setOneAction:action];</span><br><span class="line">	</span><br><span class="line">	[someThing doSomeThing];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -203,6 +204,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/06/09/2016-06-09-wai-guan-mo-shi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          外观模式
+        
+      </div>
+    </a>
   
   
     <a href="/2016/05/31/2016-05-31-xcode-yi-jian-fa-bu-dao-appstore/" id="article-nav-older" class="article-nav-link-wrap">
